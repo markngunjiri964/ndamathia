@@ -3,24 +3,120 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ndamathia Poster</title>
-  <style>
-    body { font-family: -apple-system, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; }
-    h1 { font-size: 1.8rem; }
-    h3 { margin-top: 30px; }
-    a { color: #ff0050; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <title>Ndamathia Poster — Post to TikTok from your own tool</title>
+  <meta name="description" content="Self-hosted posting tool for creators. Upload a vertical video, pick your privacy and interaction settings, and publish to TikTok through the official Content Posting API.">
+  <link rel="icon" type="image/png" href="/ndamathia/static/favicon-32.png">
+  <link rel="apple-touch-icon" href="/ndamathia/static/apple-touch-icon.png">
+  <link rel="shortcut icon" href="/ndamathia/static/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/ndamathia/static/style.css">
 </head>
 <body>
-  <h1>Ndamathia Poster</h1>
-  <p>A self-hosted content scheduling tool for creators to upload and publish original vertical videos to TikTok.</p>
+  <header class="site-nav">
+    <a class="brand" href="/ndamathia/">
+      <img src="/ndamathia/static/favicon-32.png" alt="Ndamathia Poster" width="30" height="30">
+      <span>Ndamathia Poster</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a href="/ndamathia/tos.html">Terms</a>
+      <a href="/ndamathia/privacy.html">Privacy</a>
+      <a class="cta" href="/tiktok/login">Connect TikTok</a>
+    </nav>
+  </header>
 
-  <h3>Legal Documents</h3>
-  <p><a href="/ndamathia/tos.html">Terms of Service</a></p>
-  <p><a href="/ndamathia/privacy.html">Privacy Policy</a></p>
+  <main>
+    <section class="hero">
+      <h1>Publish to TikTok from your own tool.</h1>
+      <p class="tagline">Self-hosted posting for creators. Upload a vertical video, choose your privacy and interaction settings, and publish through TikTok&rsquo;s official Content Posting API. No manual posting, no middleman holding your files.</p>
+      <div class="cta-group">
+        <a class="btn primary" href="/tiktok/login">Connect your TikTok account</a>
+        <a class="btn" href="#how-it-works">See how it works</a>
+      </div>
+    </section>
 
-  <h3>About</h3>
-  <p>Ndamathia Poster is a web-based content publishing interface built for creators who manage their own content pipeline. Users connect their TikTok account via OAuth, upload original vertical videos, set captions, choose privacy levels, and control interaction settings before posting. The tool queries each creator's available capabilities and interaction permissions, and discloses commercial or AI-generated content where applicable.</p>
+    <div class="container">
+      <section id="features">
+        <h2>Features</h2>
+        <div class="features">
+          <div class="feature">
+            <div class="icon">&#128279;</div>
+            <h3>Direct posting</h3>
+            <p>Upload MP4 videos and publish directly to your TikTok account. No screen recording, no manual posting.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">&#128274;</div>
+            <h3>Full privacy control</h3>
+            <p>Choose your privacy level for each post. Public, followers only, mutuals only, or self only. You decide, no defaults.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">&#128172;</div>
+            <h3>Interaction settings</h3>
+            <p>Toggle comments, duets, and stitch permissions per post. All off by default, you opt in.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">&#128230;</div>
+            <h3>Self-hosted</h3>
+            <p>Runs on your own machine. Your video files are deleted after upload. No third-party data harvesting.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">&#128247;</div>
+            <h3>Compliance built in</h3>
+            <p>Follows TikTok&rsquo;s Content Sharing Guidelines. Commercial content disclosure, no defaults on privacy, creator capabilities queried before posting.</p>
+          </div>
+          <div class="feature">
+            <div class="icon">&#128242;</div>
+            <h3>Token-based auth</h3>
+            <p>Connects via TikTok Login Kit OAuth. Your password never touches our server. Revoke access anytime from your TikTok settings.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="how-it-works">
+        <h2>How it works</h2>
+        <ol>
+          <li><strong>Connect your TikTok account.</strong> Click &ldquo;Connect TikTok&rdquo; and authorize via TikTok&rsquo;s OAuth. We request only the scopes needed: user info, video publish, and video list.</li>
+          <li><strong>Upload your video.</strong> Select a vertical MP4 file (up to 500MB). We temporarily store it for the upload transfer, then delete it after TikTok confirms receipt.</li>
+          <li><strong>Choose privacy and interaction settings.</strong> Select your privacy level (no default is pre-selected per TikTok guidelines). Toggle comments, duets, and stitch off or on. Disclose commercial content if applicable.</li>
+          <li><strong>Publish.</strong> We submit the post through TikTok&rsquo;s Content Posting API. The video appears on your TikTok profile with the settings you chose.</li>
+          <li><strong>Check status.</strong> Track the publish status of each post. TikTok processes uploads asynchronously.</li>
+        </ol>
+      </section>
+
+      <section id="faq" class="faq">
+        <h2>FAQ</h2>
+        <div class="q">
+          <h3>Do you store my TikTok password?</h3>
+          <p>No. Authentication is handled entirely by TikTok&rsquo;s Login Kit OAuth flow. We receive an access token, never your password. You can revoke our access at any time from your TikTok account settings.</p>
+        </div>
+        <div class="q">
+          <h3>What happens to my video files after upload?</h3>
+          <p>Video files are stored temporarily on our server only during the upload transfer to TikTok&rsquo;s servers. They are deleted immediately after the upload completes. We do not retain or analyze your content.</p>
+        </div>
+        <div class="q">
+          <h3>Is this an official TikTok product?</h3>
+          <p>No. Ndamathia Poster is an independent tool that integrates with TikTok&rsquo;s Content Posting API and Login Kit. It is built to comply with TikTok&rsquo;s Content Sharing Guidelines for Direct Post UX.</p>
+        </div>
+        <div class="q">
+          <h3>Why is there no default privacy level?</h3>
+          <p>Per TikTok&rsquo;s Content Sharing Guidelines, the creator must actively choose a privacy level for each post. No default value is pre-selected. This ensures you make an informed decision about who can see your content.</p>
+        </div>
+        <div class="q">
+          <h3>Can I schedule posts for later?</h3>
+          <p>The current version supports immediate publishing. Scheduled posting is on the roadmap and will use TikTok&rsquo;s scheduled post capabilities once available in the Content Posting API.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>Ndamathia Poster &mdash; Self-hosted TikTok content scheduling tool</p>
+    <p><a href="/ndamathia/tos.html">Terms of Service</a> | <a href="/ndamathia/privacy.html">Privacy Policy</a></p>
+    <p>&copy; 2026 Ndamathia Poster. Built on TikTok Content Posting API.</p>
+  </footer>
 </body>
 </html>

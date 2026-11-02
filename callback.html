@@ -2,18 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OAuth Callback — Ndamathia Poster</title>
+  <link rel="icon" type="image/png" href="/ndamathia/static/favicon-32.png">
+  <link rel="stylesheet" href="/ndamathia/static/style.css">
 </head>
 <body>
-  <p>Processing OAuth callback...</p>
+  <div class="legal" style="text-align:center; padding-top: 120px;">
+    <h1>Processing OAuth callback...</h1>
+    <p class="subtitle">Redirecting to the Ndamathia Poster backend.</p>
+  </div>
   <script>
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
     const state = params.get('state');
     if (code) {
-      window.location.href = 'http://localhost:5050/callback?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(state || '');
+      // Redirect to the Tailscale-hosted Flask backend for token exchange
+      window.location.href = 'https://iostream-latitude-e7470.tail04245c.ts.net/tiktok/callback?code=' + encodeURIComponent(code) + '&state=' + encodeURIComponent(state || '');
     } else {
-      document.body.innerHTML = '<p>No code received. Check the URL parameters.</p>';
+      document.querySelector('.legal').innerHTML = '<div class="card"><h3>No code received</h3><p>No authorization code was found in the URL. Please try connecting your TikTok account again.</p><p><a class="btn" href="/ndamathia/">Back to home</a></p></div>';
     }
   </script>
 </body>
